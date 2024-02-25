@@ -8,7 +8,45 @@ const DB_PATH=path.resolve("db.json");
 const dbConnect=require('./mongodb');
 const mongo=require("./mongo");
 const { Collection } = require('mongoose');
+const http = require('node:http');
 
+const postData = JSON.stringify({
+  'mq2': '1',
+  'mq7':'2',
+  'mq135':'3',
+  'dust':'4'
+});
+
+const options = {
+  hostname: 'http://127.0.0.1:4000',
+  port: 4000,
+  path: '/',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Content-Length': Buffer.byteLength(postData),
+  },
+};
+
+const req = http.request(options, (res) => {
+  console.log(`STATUS: ${res.statusCode}`);
+  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+  res.setEncoding('utf8');
+  res.on('data', (chunk) => {
+    console.log(`BODY: ${chunk}`);
+  });
+  res.on('end', () => {
+    console.log('No more data in response.');
+  });
+});
+
+req.on('error', (e) => {
+  console.error(`problem with request: ${e.message}`);
+});
+
+// Write data to request body
+req.write(postData);
+req.end();
 const main= async()=>{
 let data=await dbConnect();
 data= await data.find().toArray();
