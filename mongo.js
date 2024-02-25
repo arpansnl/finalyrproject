@@ -34,5 +34,5 @@ const Schema=new mongoose.Schema({
 
     }
 })
-const collection=new mongoose.model('Gas Sensor',Schema);
+const collection=new mongoose.model('gas sensors',Schema);
 
