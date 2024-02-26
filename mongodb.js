@@ -1,5 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+
+var url = "mongodb://localhost:27017/gasSensor";
 const client=new MongoClient(url);
 const database="gasSensor";
 async function dbConnect(){

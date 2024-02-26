@@ -1,14 +1,14 @@
 const express=require('express');
 const app=express();
 app.use(express.json());
-const PORT=process.env.PORT||4000;
+const PORT=process.env.PORT||10000;
 const path=require("path");
 const fs=require("fs");
 const DB_PATH=path.resolve("db.json");
 const dbConnect=require('./mongodb');
 const mongo=require("./mongo");
 const { Collection } = require('mongoose');
-const http = require('node:http');
+const http = require('http');
 
 const postData = JSON.stringify({
   'mq2': '1',
@@ -18,17 +18,18 @@ const postData = JSON.stringify({
 });
 
 const options = {
-  hostname: 'http://127.0.0.1:4000',
-  port: 4000,
+  hostname: 'https://35.160.120.126'||
+  
+  port: 10000,
   path: '/',
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
-    'Content-Length': Buffer.byteLength(postData),
-  },
+    'Content-Type': 'application/json'
+  }
 };
+var request = require('request');
 
-const req = http.request(options, (res) => {
+const req = http.createServer(options, (res) => {
   console.log(`STATUS: ${res.statusCode}`);
   console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
   res.setEncoding('utf8');
@@ -38,20 +39,17 @@ const req = http.request(options, (res) => {
   res.on('end', () => {
     console.log('No more data in response.');
   });
+  req.on('error', (e) => {
+    console.error(`problem with request: ${e.message}`);
+  });
 });
-
-req.on('error', (e) => {
-  console.error(`problem with request: ${e.message}`);
-});
-
-// Write data to request body
-req.write(postData);
-req.end();
-const main= async()=>{
-let data=await dbConnect();
-data= await data.find().toArray();
-console.log(data);
-}
+const req1=http.request(options,(res)=>{
+    req1.on('error', (e) => {
+        console.error(`problem with request: ${e.message}`);
+      });
+      req1.write(postData);
+      req1.end();
+})
 app.use(express.json());
 app.get("/",async(req,res)=>{
     fs.readFile(DB_PATH,"utf-8",(err,jsonString)=>{
