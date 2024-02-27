@@ -1,77 +1,104 @@
-const express=require('express');
-const app=express();
-app.use(express.json());
+var express = require('express');
+var bodyParser = require('body-parser');
+const SECRET_KEY = "Arpan";
+//const console=require('console')
+const { response } = require('express');
+const { type } = require('server/reply');
+//var app = express().use(express.static(__dirname + '/'));
+//var http = require('http').Server();
+//var request = require('request');
+//const { json } = require("http-client");
+//const { hostname } = require('os');
+// app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 const PORT=process.env.PORT||10000;
 const path=require("path");
 const fs=require("fs");
-const DB_PATH=path.resolve("db.json");
-const dbConnect=require('./mongodb');
-const mongo=require("./mongo");
-const { Collection } = require('mongoose');
-const http = require('http');
+const { error } = require('console');
+const sensors=require('./sensordata');
+const { Timestamp } = require('mongodb');
 
-const postData = JSON.stringify({
-  'mq2': '1',
-  'mq7':'2',
-  'mq135':'3',
-  'dust':'4'
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://127.0.0.1:27017";
+express = require('express'),
+app = express().use(express.static(__dirname + '/')),
+http = require('http').Server(app),
+io = require('socket.io')(http);
+app.listen(8000);
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html');
 });
 
-const options = {
-  hostname: 'https://35.160.120.126'||
-  
-  port: 10000,
-  path: '/',
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  }
-};
-var request = require('request');
-
-const req = http.createServer(options, (res) => {
-  console.log(`STATUS: ${res.statusCode}`);
-  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
-  res.setEncoding('utf8');
-  res.on('data', (chunk) => {
-    console.log(`BODY: ${chunk}`);
-  });
-  res.on('end', () => {
-    console.log('No more data in response.');
-  });
-  req.on('error', (e) => {
-    console.error(`problem with request: ${e.message}`);
-  });
+io.on('connection', function(socket){
+    console.log('a user connected');
 });
-const req1=http.request(options,(res)=>{
-    req1.on('error', (e) => {
-        console.error(`problem with request: ${e.message}`);
-      });
-      req1.write(postData);
-      req1.end();
-})
 app.use(express.json());
-app.get("/",async(req,res)=>{
-    fs.readFile(DB_PATH,"utf-8",(err,jsonString)=>{
-        if(err)return console.log("error in reading from db");
-        let values=JSON.parse(jsonString);
-        res.status(200).json({
-            totalValues:values.length,
-            values,
-        });
-    });
-});
-app.post("/",async (req,res)=>{
-        const data=new Collection({
-            time:new Date(),
-            mq2:req.body.mq2,
-            mq7:req.body.mq7,
-            mq135:req.body.mq135,
-            dust:req.body.dust
-        });
-        const val= await data.save();
-        res.json(val);
-        
-        
-    });
-app.listen(PORT,()=> console.log("listening to port:",PORT));
+app.post("/", (req,res)=>{
+    console.log(req);
+         
+         
+    })
+    
+var server = express();
+server.use(bodyParser.urlencoded({ extended: false }));
+server.use(bodyParser.json());
+server.use('/', express.static('index'));
+server.set("view engine", "ejs");
+var dados = [];
+var info;
+//const { Parser }= require ("simple-text-parser");
+ 
+// const parser = new Parser();
+// server.use(parser);
+// // const x=require('simple-text-parser')
+// // server.use(x.new Parser());
+console.log("1");
+function GetDados(req, resp) {
+    resp.setHeader("Access-Control-Allow-Origin", "*");
+    resp.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept');
+    resp.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+    
+    resp.send(dados);
+};
+function postDados(req,resp){
+    
+    if (req.query.admin == SECRET_KEY) {
+        info = {"time:":Date(), "mq2": req.query.mq2, "mq7": req.query.mq7,"mq135": req.query.mq135,"dust2": req.query.dust2 };
+        MongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology:true})
+        .then((db,err)=>{
+         console.log("1");
+            if (err) throw err;
+        var dbo = db.db("gasSensor");
+        dbo.collection("gas sensors").insertOne(info, function(err, res) {
+            if (err) throw err;
+            console.log("1 document inserted");
+            db.close();
+        })
+    })
+        resp.send({ "Status": 200 });
+        console.log(info);
+    } else {
+        resp.status(401);
+        resp.send({ "Erro": "Senha Incorreta" });
+    }
+    
+};
+server.post('/send',postDados);
+    
+    // req.setHeader('content-type','text/plain');
+    // req.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept');
+    // req.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+
+
+function DeleteDados(req, resp) {
+    dados = [];
+    resp.send("");
+};
+
+server.listen(10000);
+
+
+server.get("/", GetDados);
+
+server.delete("/Deletar", DeleteDados);

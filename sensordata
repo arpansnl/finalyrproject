@@ -1,0 +1,30 @@
+
+const mongoose=require('mongoose');
+
+const Schema=new mongoose.Schema({
+    time:{
+        type:Date,
+        require:true
+    },
+    mq2:{
+        type:Number,
+        require:true
+    },
+    mq7:{
+        type:Number,
+        require:true
+
+    },
+    mq135:{
+        type:Number,
+        require:true
+
+    },
+    dust:{
+        type:Number,
+        require:true
+
+    }
+})
+const sensors=mongoose.model('gas sensors',Schema);
+module.exports.sensors;
