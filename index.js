@@ -95,9 +95,9 @@ function postDados(req,resp){
     }
     
 
-server.post('/send',postDados);
+server.post('/send',bodyParser.json,postDados);
     
-    // req.setHeader('content-type','text/plain');
+    //req.setHeader('content-type','text/plain');
     // req.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept');
     // req.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
 
