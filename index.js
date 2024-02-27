@@ -12,20 +12,21 @@ const { type } = require('server/reply');
 // app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
-const PORT=process.env.PORT||10000;
+const port=process.env.PORT||3000;
 const path=require("path");
 const fs=require("fs");
 const { error } = require('console');
 const sensors=require('./sensordata');
 const { Timestamp } = require('mongodb');
+const { hostname } = require('os');
 
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://127.0.0.1:27017";
 express = require('express'),
-app = express().use(express.static(__dirname + '/')),
-http = require('http').Server(app),
+app = express()
+http = require('http'),
 io = require('socket.io')(http);
-app.listen(8000);
+
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
@@ -35,16 +36,15 @@ io.on('connection', function(socket){
 });
 app.use(express.json());
 app.post("/", (req,res)=>{
-    console.log(req);
-         
-         
+    console.log(req);     
     })
     
-var server = express();
-server.use(bodyParser.urlencoded({ extended: false }));
-server.use(bodyParser.json());
-server.use('/', express.static('index'));
-server.set("view engine", "ejs");
+var server = http.createServer(app);
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use('/', express.static('index'));
+app.set("view engine", "ejs");
 var dados = [];
 var info;
 //const { Parser }= require ("simple-text-parser");
@@ -84,7 +84,7 @@ function postDados(req,resp){
     }
     
 };
-server.post('/send',postDados);
+app.post('/send',postDados);
     
     // req.setHeader('content-type','text/plain');
     // req.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept');
@@ -96,9 +96,12 @@ function DeleteDados(req, resp) {
     resp.send("");
 };
 
-server.listen(10000);
+app.listen(10000);
 
 
-server.get("/", GetDados);
+app.get("/", GetDados);
 
-server.delete("/Deletar", DeleteDados);
+app.delete("/Deletar", DeleteDados);
+server.listen(port, ()=>{
+console.log('started on port ${port}');
+})
