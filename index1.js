@@ -2,7 +2,7 @@ const PORT=process.env.PORT||10000;
 const path=require("path");
 const fs=require("fs");
 const { error } = require('console');
-const sensors=require('./sensordata');
+const sensors=require('./models/sensordata');
 
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://127.0.0.1:27017";
