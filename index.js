@@ -5,12 +5,15 @@ const SECRET_KEY = "Arpan";
 require("dotenv").config();
 
 // app.use(express.json());
+const { MongoClient } = require("mongodb");
 
 const connectDB = require("./connectMongo");
-
+const client = new MongoClient('mongodb+srv://arpansnl01:Arpansnl@cluster0.oibycgi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 connectDB();
 const { response } = require('express');
 const { type } = require('server/reply');
+const db = client.db("test");
+const col = db.collection("gas sensors");
 //var app = express().use(express.static(__dirname + '/'));
 //var http = require('http').Server();
 //var request = require('request');
@@ -70,18 +73,14 @@ function GetDados(req, resp) {
 function postDados(req,resp){
     
     if (req.query.admin == SECRET_KEY) {
-       try{
         info = {"time:":Date(), "mq2": req.query.mq2, "mq7": req.query.mq7,"mq135": req.query.mq135,"dust2": req.query.dust2 };
-        const data= new sensors(info);
-        
-        const store=data.save();
-        
+        col.insertOne(info);
         resp.send({ "Status": 200 });
         console.log(info);
-       }
-       catch(error){
+    }
+       else{
         console.log("error");
-        // MongoClient.connect(url,{ useNewUrlParser: true ,useUnifiedTopology:true})
+        
         // .then((db,err)=>{
         //  console.log("1");
         //     if (err) throw err;
@@ -92,10 +91,10 @@ function postDados(req,resp){
         //     db.close();
         resp.status(401);
         resp.send({ "Error": "Admin incorrect" });
+       }
     }
     
-}
-}
+
 server.post('/send',postDados);
     
     // req.setHeader('content-type','text/plain');
