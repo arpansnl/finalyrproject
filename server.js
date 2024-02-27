@@ -1,8 +1,11 @@
-const http=require('http');
-const app=require('./index');
+const express=require('express');
+const app=express();
 const { hostname } = require('os');
 const port=process.env.PORT || 5000;
-const server=http.createServer(app);
-server.listen(port, 'https://finalyrproject.onrender.com',() => {
-    console.log('started on port ${port}');
+
+app.listen(process.env.PORT || 5000, ()=>{
+    console.log(`listening on ${process.env.PORT || 3000}`);
 });
+app.get('/',async(req,res)=>{
+    res.send("<h1>hello World!</h1>")
+})
