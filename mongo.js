@@ -1,0 +1,32 @@
+
+import pkg6 from 'mongoose';
+const mongoose=pkg6;
+const Schema=new mongoose.Schema({
+    time:{
+        type:Date,
+        require:true
+    },
+    mq2:{
+        type:Number,
+        require:true
+    },
+    mq7:{
+        type:Number,
+        require:true
+
+    },
+    mq135:{
+        type:Number,
+        require:true
+
+    },
+    dust:{
+        type:Number,
+        require:true
+
+    }
+})
+// const sensors=mongoose.model('gas sensors',Schema);
+
+var pkg7= mongoose.model('gas sensors',Schema);
+export default pkg7;

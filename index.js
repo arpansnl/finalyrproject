@@ -1,5 +1,7 @@
- import pkg1 from 'express';
- const {express}=pkg1;
+import express from 'express';
+import { createServer } from "https";
+//  const {express}=express;
+
 
 const SECRET_KEY = "Arpan";
 //const console=require('console')
@@ -27,13 +29,12 @@ const col = db.collection("gas sensors");
 // app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
-const PORT=process.env.PORT;
 
 
-import pkg6 from '';
+import pkg6 from './mongo.js';
 const sensors=pkg6;
-const server1=require('./server');
-const { Timestamp } = require('mongodb');
+//const server1=require('./server.js');
+const { Timestamp } = pkg3;
 
 // var MongoClient = require('mongodb').MongoClient;
 // var url = "mongodb://127.0.0.1:27017";
@@ -53,18 +54,20 @@ const { Timestamp } = require('mongodb');
 // app.post("/", (req,res)=>{
 //     console.log(req);
 //     });
-    import pkg from "body-parser";
+import pkg from "body-parser";
 import { readFileSync } from "fs";
-import { createServer } from "https";
-;
+
+
  
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
- 
+const { urlencoded, json } = pkg;
+const server = express();
 server.use(urlencoded({ extended: false }));
-server.use(json());
+server.urlencoded;
+server.json;
  
 const options = {
    key: readFileSync("server.key"),
@@ -79,8 +82,7 @@ createServer(options, server).listen(3001, function (req, res) {
    console.log("Server started at port 3001");
 });
 
-server.use(bodyParser.urlencoded({ extended: false }));
-server.use(json());
+
 server.use('/', express.static('index'));
 server.set("view engine", "ejs");
 var dados = [];
@@ -124,7 +126,7 @@ function postDados(req,resp){
     }
     
 
-server.post('/send',bodyParser.json,postDados);
+server.post('/send',postDados);
     
     //req.setHeader('content-type','text/plain');
     // req.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept');
@@ -142,6 +144,3 @@ function DeleteDados(req, resp) {
 server.get("/", GetDados);
 
 server.delete("/Deletar", DeleteDados);
-server.listen(PORT, ()=>{
-    console.log("server is running on port="+PORT);
-});

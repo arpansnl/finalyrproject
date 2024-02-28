@@ -1,6 +1,6 @@
 
-const mongoose=require('mongoose');
-
+import pkg6 from 'mongoose';
+const mongoose=pkg6;
 const Schema=new mongoose.Schema({
     time:{
         type:Date,
@@ -26,6 +26,7 @@ const Schema=new mongoose.Schema({
 
     }
 })
-const sensors=mongoose.model('gas sensors',Schema);
+// const sensors=mongoose.model('gas sensors',Schema);
 
-export default sensors;
+const pkg6= mongoose.model('gas sensors',Schema);
+export default pkg6;
