@@ -1,7 +1,6 @@
 {
   "name": "finalyrproject",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -13,6 +12,7 @@
   "dependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "https": "^1.0.0",
@@ -20,7 +20,7 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.2.0",
     "nodemon": "^3.1.0",
-    "openssl": "^1.1.1w",
     "vite": "^5.1.4"
-  }
+  },
+  "description": ""
 }
