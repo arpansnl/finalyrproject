@@ -3,7 +3,7 @@ import { createServer } from "https";
 //  const {express}=express;
 
 
-const SECRET_KEY = "Arpan";
+const SECRET_KEY = "Arpan ";
 //const console=require('console')
 import pkg4 from 'https';
 import pkg3 from 'mongodb';
@@ -68,7 +68,8 @@ const server = express();
 server.use(urlencoded({ extended: false }));
 server.urlencoded;
 server.json;
- 
+
+ server.post("/send",postDados);
 const options = {
    key: readFileSync("server.key"),
    cert: readFileSync("server.cert"),
@@ -102,9 +103,9 @@ function GetDados(req, resp) {
     resp.send(dados);
 };
 function postDados(req,resp){
-    
+console.log(2);
     if (req.query.admin == SECRET_KEY) {
-        info = {"time:":Date(), "mq2": req.query.mq2, "mq7": req.query.mq7,"mq135": req.query.mq135,"dust2": req.query.dust2 };
+        info = {"mq2": req.query.mq2, "mq7": req.query.mq7,"mq135": req.query.mq135,"dust2": req.query.dust2 };
         col.insertOne(info);
         resp.send({ "Status": 200 });
         console.log(info);
@@ -141,6 +142,6 @@ function DeleteDados(req, resp) {
 
 
 
-server.get("/", GetDados);
+
 
 server.delete("/Deletar", DeleteDados);
