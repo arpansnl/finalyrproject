@@ -71,8 +71,8 @@ server.json;
 
  server.post("/send",postDados);
 const options = {
-   key: readFileSync("server.key"),
-   cert: readFileSync("server.cert"),
+   key: readFileSync("./key.pem"),
+   cert: readFileSync("./cert.pem"),
 };
 
 server.get("/", function (req, res) {
