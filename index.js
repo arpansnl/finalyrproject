@@ -1,17 +1,22 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+ import pkg1 from 'express';
+ const {express}=pkg1;
+
 const SECRET_KEY = "Arpan";
 //const console=require('console')
-require("dotenv").config();
-
+import pkg4 from 'https';
+import pkg3 from 'mongodb';
+import pkg5 from './connectMongo.js';
+const x=pkg.con;
 // app.use(express.json());
-const { MongoClient } = require("mongodb");
+const { MongoClient } = pkg3;
+const https=pkg4;
+const connectDB=pkg5;
+//const connectDB = require("./connectMongo");
 
-const connectDB = require("./connectMongo");
 const client = new MongoClient('mongodb+srv://arpansnl01:Arpansnl@cluster0.oibycgi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 connectDB();
-const { response } = require('express');
-const { type } = require('server/reply');
+// const { response } = require('express');
+// const { type } = require('server/reply');
 const db = client.db("test");
 const col = db.collection("gas sensors");
 //var app = express().use(express.static(__dirname + '/'));
@@ -25,14 +30,14 @@ const col = db.collection("gas sensors");
 const PORT=process.env.PORT;
 
 
-
-const sensors=require('./models/sensordata');
+import pkg6 from '';
+const sensors=pkg6;
 const server1=require('./server');
 const { Timestamp } = require('mongodb');
 
 // var MongoClient = require('mongodb').MongoClient;
 // var url = "mongodb://127.0.0.1:27017";
-var express = require('express'),
+
 //app = express().use(express.static(__dirname + '/')),
 //http = require('http').Server(app),
 //io = require('socket.io')(http);
@@ -48,10 +53,34 @@ var express = require('express'),
 // app.post("/", (req,res)=>{
 //     console.log(req);
 //     });
-    
-server = express();
+    import pkg from "body-parser";
+import { readFileSync } from "fs";
+import { createServer } from "https";
+;
+ 
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+ 
+server.use(urlencoded({ extended: false }));
+server.use(json());
+ 
+const options = {
+   key: readFileSync("server.key"),
+   cert: readFileSync("server.cert"),
+};
+
+server.get("/", function (req, res) {
+   res.sendFile("index.html",{root: __dirname})
+});
+
+createServer(options, server).listen(3001, function (req, res) {
+   console.log("Server started at port 3001");
+});
+
 server.use(bodyParser.urlencoded({ extended: false }));
-server.use(bodyParser.json());
+server.use(json());
 server.use('/', express.static('index'));
 server.set("view engine", "ejs");
 var dados = [];

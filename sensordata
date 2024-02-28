@@ -27,4 +27,5 @@ const Schema=new mongoose.Schema({
     }
 })
 const sensors=mongoose.model('gas sensors',Schema);
-module.exports.sensors;
+
+export default sensors;
