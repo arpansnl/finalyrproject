@@ -5,7 +5,7 @@ const dotenv=pk10;
 pk10.config();
 const connectDB= ()=>{
     try{
-        mongoose.connect(dotenv.env.uri);
+        mongoose.connect(process.env.uri);
         console.log("MONGO DB CONNECTED");
     }
     catch{
