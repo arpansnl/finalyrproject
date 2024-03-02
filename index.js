@@ -1,5 +1,4 @@
 import express from 'express';
-import { createServer } from "https";
 //  const {express}=express;
 
 
@@ -56,33 +55,44 @@ const { Timestamp } = pkg3;
 //     });
 import pkg from "body-parser";
 import { readFileSync } from "fs";
-
-
- 
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+var optionsget = {
+    host : '0.0.0.0',
+    port : 3001,
+    path : '/', // the rest of the url with parameters if needed
+    method : 'GET' // do GE
+};
+var reqGet=https.request(optionsget, function(req,res){
+console.log('status code:'+res.statusCode);
+    res.on('data', function(d) {
+    console.info('GET result:\n');
+    process.stdout.write(d);
+    console.info('\n\nCall completed');
+})
+})
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const { urlencoded, json } = pkg;
-const server = express();
+//const server = express();
+const options = {
+    key: readFileSync("./key.pem"),
+    cert: readFileSync("./cert.pem"),
+ };
+
+
+const server=express();
+server.listen("https://finalyearproject.onrender.com",options);
 server.use(urlencoded({ extended: false }));
 server.urlencoded;
 server.json;
+server.post("/send",postDados)
 
- server.post("/send",postDados);
-const options = {
-   key: readFileSync("./key.pem"),
-   cert: readFileSync("./cert.pem"),
-};
 
 server.get("/", function (req, res) {
    res.sendFile("index.html",{root: __dirname})
 });
-
-createServer(options, server).listen(3001, function (req, res) {
-   console.log("Server started at port 3001");
-});
-
 
 server.use('/', express.static('index'));
 server.set("view engine", "ejs");
