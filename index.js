@@ -39,7 +39,7 @@ import { fileURLToPath } from 'url';
 import { error } from 'console';
 
 var optionsget = {
-    host : "finalyearproject-5iva.publicvm.com",
+    host : "finalyearproject-5iva.public.onrender.com",
     port: process.env.PORT || 2000,
     path : '/', // the rest of the url with parameters if needed
     method : 'GET',
@@ -67,7 +67,7 @@ console.log("server created on 2000");
 httpServer.urlencoded;
 httpServer.json;
 
-server.listen()
+server.listen("2000");
 var reqGet=httpServer.listen(optionsget, function(req,res)
 {
     httpServer.on(error,(e)=>{console.log(e)});
