@@ -1,10 +1,10 @@
-import express from 'express';
-const SECRET_KEY = "Arpan";
 import pk10 from 'dotenv';
+import express from 'express';
 import pkg4 from 'https';
 import pkg3 from 'mongodb';
 import pkg5 from './connectMongo.js';
 import pkg6 from './mongo.js';
+const SECRET_KEY = "Arpan";
 const x=pkg.con;
 const hostname = '<YOUR_IP>';
 const { MongoClient } = pkg3;
@@ -33,14 +33,14 @@ const { Timestamp } = pkg3;
 pk10.config();
 
 import pkg from "body-parser";
+import { error } from 'console';
 import { readFileSync } from "fs";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { error } from 'console';
 
 var optionsget = {
     host : "finalyearproject-5iva.public.onrender.com",
-    port: process.env.PORT || 2000,
+    port: process.env.PORT || 3001,
     path : '/', // the rest of the url with parameters if needed
     method : 'GET',
     key: readFileSync("./key.pem"),
@@ -59,15 +59,15 @@ var options = {
 
 
 const httpServer=https.createServer(server);
-httpServer.listen(2000,"0.0.0.0",(req,res)=>{
+httpServer.listen(3001,"0.0.0.0",(req,res)=>{
     console.log("2");
-console.log("server created on 2000");
+console.log("server created on 3001");
 });
 //server.use(urlencoded({ extended: false }));
 httpServer.urlencoded;
 httpServer.json;
 
-server.listen("2000");
+server.listen("3001");
 var reqGet=httpServer.listen(optionsget, function(req,res)
 {
     httpServer.on(error,(e)=>{console.log(e)});
