@@ -1,12 +1,14 @@
+import pkg11 from 'dns';
 import pk10 from 'dotenv';
 import express from 'express';
 import pkg4 from 'https';
 import pkg3 from 'mongodb';
 import pkg5 from './connectMongo.js';
 import pkg6 from './mongo.js';
+const dns=pkg11;  
 const SECRET_KEY = "Arpan";
 const x=pkg.con;
-const hostname = '<YOUR_IP>';
+//const hostname = '<YOUR_IP>';
 const { MongoClient } = pkg3;
 const https=pkg4;
 const connectDB=pkg5;
@@ -31,7 +33,7 @@ const sensors=pkg6;
 //const server1=require('./server.js');
 const { Timestamp } = pkg3;
 pk10.config();
-
+// dns.lookup("finalyearproject-5iva.onrender.com",console.log);
 import pkg from "body-parser";
 import { error } from 'console';
 import { readFileSync } from "fs";
@@ -56,18 +58,28 @@ var options = {
     cert: readFileSync("./cert.pem"),
     MONGO_CONNECT_URI:"mongodb+srv://arpansnl01:Arpansnl@cluster0.oibycgi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
  };
+ const httpServer=https.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('okay');
+ });
+ httpServer.on('request', (request, res) => {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      data: 'Hello World!',
+    }));
+  });
+ 
 
-
-const httpServer=https.createServer(server);
-httpServer.listen(3001,"0.0.0.0",(req,res)=>{
-    console.log("2");
-console.log("server created on 3001");
-});
+httpServer.listen(process.env.PORT,"0.0.0.0");
+//(req,res)=>{
+//      console.log("2");
+//  console.log("server created on 3001");
+//  });
 //server.use(urlencoded({ extended: false }));
 httpServer.urlencoded;
 httpServer.json;
 
-server.listen("3001");
+server.listen(3001,"127.0.0.1");
 var reqGet=httpServer.listen(optionsget, function(req,res)
 {
     httpServer.on(error,(e)=>{console.log(e)});
@@ -108,7 +120,6 @@ console.log(2);
     }
        else{
         console.log("error");
-        
         // .then((db,err)=>{
         //  console.log("1");
         //     if (err) throw err;
