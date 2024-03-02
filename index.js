@@ -34,7 +34,7 @@ import pkg6 from './mongo.js';
 const sensors=pkg6;
 //const server1=require('./server.js');
 const { Timestamp } = pkg3;
-
+import pk10 from 'dotenv';
 // var MongoClient = require('mongodb').MongoClient;
 // var url = "mongodb://127.0.0.1:27017";
 
@@ -79,15 +79,16 @@ const { urlencoded, json } = pkg;
 const options = {
     key: readFileSync("./key.pem"),
     cert: readFileSync("./cert.pem"),
+    MONGO_CONNECT_URI:"mongodb+srv://arpansnl01:Arpansnl@cluster0.oibycgi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
  };
 
 
 const server=express();
-server.listen("https://finalyearproject.onrender.com",options);
+server.listen("7000","216.24.57.253");
 server.use(urlencoded({ extended: false }));
 server.urlencoded;
 server.json;
-server.post("/send",postDados)
+server.post("/send",postDados);
 
 
 server.get("/", function (req, res) {
