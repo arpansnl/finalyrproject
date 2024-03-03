@@ -76,7 +76,7 @@ var options = {
 httpServer.urlencoded;
 httpServer.json;
 
-httpServer.listen(3001,"192.168.31.58");
+httpServer.listen(3001,"0.0.0.0");
 var reqGet=httpServer.listen(optionsget, function(req,res)
 {
     httpServer.on(Http2ServerRequest,(res)=>{console.log(res)});
@@ -142,7 +142,7 @@ function DeleteDados(req, resp) {
     dados = [];
     resp.send("");
 };
-server.listen(3001,"0.0.0.0");
+server.listen(3001,"127.0.0.1");
 
 
 
