@@ -76,7 +76,7 @@ var options = {
 httpServer.urlencoded;
 httpServer.json;
 
-server.listen(3001);
+httpServer.listen(3001,"192.168.31.58");
 var reqGet=httpServer.listen(optionsget, function(req,res)
 {
     httpServer.on(Http2ServerRequest,(res)=>{console.log(res)});
@@ -113,7 +113,7 @@ console.log(2);
         info = {"mq2": req.query.mq2, "mq7": req.query.mq7,"mq135": req.query.mq135,"dust2": req.query.dust2 };
         col.insertOne(info);
         resp.send({ "Status": 200 });
-        console.log(info);
+        console.log(req);
     }
        else{
         console.log("error");
@@ -142,7 +142,7 @@ function DeleteDados(req, resp) {
     dados = [];
     resp.send("");
 };
-
+server.listen(3001,"0.0.0.0");
 
 
 
