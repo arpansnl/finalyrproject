@@ -2,7 +2,6 @@
   "name": "finalyrproject",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
@@ -20,6 +19,7 @@
     "laravel-vite-plugin": "^1.0.2",
     "mongodb": "^6.3.0",
     "mongoose": "^8.2.0",
+    "node-fetch": "^3.3.2",
     "nodejs": "^0.0.0",
     "nodemon": "^3.1.0",
     "openssl-nodejs": "^1.0.5",
