@@ -39,11 +39,13 @@ import { error } from 'console';
 import { readFileSync } from "fs";
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { request } from 'http';
+import { Http2ServerRequest } from 'http2';
 
 var optionsget = {
-    host : "finalyearproject-5iva.public.onrender.com",
+    host : "0.0.0.0",
     port: process.env.PORT || 3001,
-    path : '/', // the rest of the url with parameters if needed
+    path : '/',
     method : 'GET',
     key: readFileSync("./key.pem"),
      cert: readFileSync("./cert.pem"),
@@ -62,15 +64,10 @@ var options = {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('okay');
  });
- httpServer.on('request', (request, res) => {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({
-      data: 'Hello World!',
-    }));
-  });
- 
 
-httpServer.listen(process.env.PORT,"0.0.0.0");
+
+//httpServer.listen(process.env.PORT,"finalyearproject.onrender.com",console.log("yes"));
+
 //(req,res)=>{
 //      console.log("2");
 //  console.log("server created on 3001");
@@ -79,10 +76,10 @@ httpServer.listen(process.env.PORT,"0.0.0.0");
 httpServer.urlencoded;
 httpServer.json;
 
-server.listen(3001,"127.0.0.1");
+server.listen(3001);
 var reqGet=httpServer.listen(optionsget, function(req,res)
 {
-    httpServer.on(error,(e)=>{console.log(e)});
+    httpServer.on(Http2ServerRequest,(res)=>{console.log(res)});
     //console.log('status code:'+res.);
 })
 
