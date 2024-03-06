@@ -1,0 +1,24 @@
+
+exports = function ({ query, headers, body }, response) {  
+x= {
+	 status: "ok",
+		bodyy:body.text(),
+		query:query,
+		response:response
+	};	
+	y=(x.bodyy);
+	z=JSON.parse(y);
+	mq2=(z.mq2);
+	mq7=z.mq7;
+	mq135=z.mq135;
+	dust=z.dust;
+	if(mq2===undefined||mq7===undefined||mq135===undefined||dust===undefined){ response.setStatusCode(400);return "missing values";}
+	else{
+	  obj={"time":new Date(),"mq2":mq2,"mq7":mq7,"mq135":mq135,"dust":dust}
+	 const collection = context.services.get("Cluster0").db("test").collection("try");
+	 rval=collection.insertOne(obj);
+	 response.setStatusCode("200");
+	 return rval;
+}
+return"cool!";
+}
