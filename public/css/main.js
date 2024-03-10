@@ -26,6 +26,7 @@ let output = details;
 searchButton.addEventListener('click', (e)=> {
    
      init();
+     document.getElementById('indoor-iframe').style.display = "none";
     search(searchInput.value,details);
     e.preventDefault();
 });
