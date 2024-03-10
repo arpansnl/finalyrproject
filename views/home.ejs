@@ -1,0 +1,35 @@
+
+<link rel="stylesheet" type="text/css" href="../css/style1.css">
+
+<link  rel="stylesheet"  href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css"  />  
+<script  src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>  
+  
+<div id="outer">
+    <h2>Hi, Welcome to Air predict-5.info</h2>
+   
+
+
+
+
+
+ <div id="inner">
+<li><a href="/register">Sign up!!</a></li>
+<li><a href="/login">Login</a></li>
+
+</div>
+</div>
+<h1 class="glow">LOGIN TO MONITOR !!!</h1>
+<div  id='map'  style='height:380px;'  />  
+<script>  
+   
+    var  OSM_URL  =  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';  
+    var  OSM_ATTRIB  =  '&copy;  <a  href="http://openstreetmap.org/copyright">OpenStreetMap</a>  contributors';  
+    var  osmLayer  =  L.tileLayer(OSM_URL,  {  attribution:  OSM_ATTRIB  });  
+
+    var  WAQI_URL  =  "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=fdf0fddd82f6f5f19572856cc01835b8f5354929";  
+    var  WAQI_ATTR  =  'Air  Quality  Tiles  &copy;  <a  href="http://waqi.info">waqi.info</a>';  
+    var  waqiLayer  =  L.tileLayer(WAQI_URL,  {  attribution:  WAQI_ATTR  });  
+
+    var  map  =  L.map('map').setView([22.5726,  88.3639],  11);  
+    map.addLayer(osmLayer).addLayer(waqiLayer);  
+</script>

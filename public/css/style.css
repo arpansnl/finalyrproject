@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Electrolize', sans-serif;
+
+
+    background-color: #07081D;
+}
+.homelinks{
+    display: flex;
+    justify-content: space-evenly;
+}
+.navbarContainer {
+  color: white;
+  width: 100%;
+  display: flex;
+  position: sticky;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 5px solid white ;
+}
+.logo {
+  font-size: 2em;
+  font-family: Bricolage Grotesque;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.bodySmall {
+  font-size: 16px;
+  font-family: Bricolage Grotesque;
+  font-weight: 400;
+  line-height: 150%;
+  padding-left:20px;
+}
+
+body {
+    
+    height: auto;
+    color: #ffffff;
+   
+}
+
+/* INPUT & BUTTON */
+#search-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    
+}
+
+#search-form input{
+    color: #ffffff;
+}
+#search-form input::placeholder {
+    color: #fff;
+}
+
+#search-button{
+  
+    text-transform: uppercase;
+    text-decoration: none;
+    background: white;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 11px;
+    
+    display: inline-block;
+    transition: all 0.4 ease 0s;
+}
+
+#search-button:hover{
+    color: #ffffff;
+    background: #ff6768;
+    border-color: #ff6768;
+    transition: all 0.4s ease 0s;
+}
+
+#geo-button{
+    color: red;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: white;
+    border-radius: 5px;
+    padding: 11px;
+    border: 2px solid rgb(16, 40, 82);
+    display: inline-block;
+    transition: all 0.4 ease 0s;
+    margin-left: 2px;
+}
+
+#geo-button:hover{
+    color: #ffffff;
+    background: #ff6768;
+    border-color: #ff6768;
+    transition: all 0.4s ease 0s;
+}
+#geo-button i{
+    background: transparent;
+}
+#search-input{
+    width: 240px;
+    overflow: hidden;
+    font-size: 20px;
+    margin: 8px 0;
+    padding: 8px 0;
+    border-bottom: 3px solid #ff6768;
+    color: rgb(16, 40, 82);
+    outline: none;
+    background: none;
+}
+
+input{
+    border: none;
+}
+
+
+
+/* DATA CONTAINER */
+main{
+    padding: 40px;
+    margin-top: 10px;
+    background: linear-gradient(to bottom, rgba(31, 78, 148, 0.571), rgb(19, 50, 96));
+    background-size: cover;
+    border-radius: 20px;
+    width: 400px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s ease-out;
+    box-shadow: 10px 10px 20px 10px rgb(16, 40, 82);
+}
+#container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+#location{
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+}
+#details{
+    padding: 20px;
+    width:30%;
+    background: linear-gradient(to bottom, rgba(31, 177, 210, 0.571), rgb(27, 86, 175));
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px 10px rgb(16, 40, 82);
+    font-size: large;
+    font-weight: 900;
+}
+#output2{
+    padding: 20px;
+    width:30%;
+    background: linear-gradient(to bottom, rgba(31, 177, 210, 0.571), rgb(27, 86, 175));
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px 10px rgb(16, 40, 82);
+    font-size: large;
+    font-weight: 900;
+    
+}
+table{
+    background: transparent;
+    color: white;
+}
+td{
+    background: transparent;
+    color: white;
+}
+#details div{
+    background: transparent;
+    color: white;
+}
+.result{
+    background: transparent;
+    color: white;
+}
+.result tr{
+    background: transparent;
+    color: white;
+}
+.result td sub{
+    background: transparent;
+    color: white;
+}
+.result td{
+    background: transparent;
+    color: white;
+}
+#location p {
+    font-size: 1.2rem;
+}
+
+#quality{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background-color: transparent;
+}
+#location p{
+    background-color: transparent;
+}
+#quality-description p{
+    background-color: transparent;
+}
+#quality-icon{
+    font-size: 5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+}
+
+#quality-description{
+    font-size: 2.2rem;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 10px;
+    background-color: transparent;
+}
+
+#index-value{
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-align: center; 
+    background-color: transparent;
+}
+#index-value p{
+        background-color: transparent;
+}
+#location {
+    background-color: transparent;
+}
+#cityval{
+    background-color: transparent;
+}
+#output2 div{
+    background-color: transparent;
+    color: white;
+}
+#output2 h2{
+    background-color: transparent;
+    color:white
+}
+#value{
+    background-color: transparent;
+    color:white
+}
+#indoor h2{
+color: #fff;
+}
+
+
+
+
+

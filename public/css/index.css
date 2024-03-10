@@ -1,0 +1,507 @@
+.aqipredict1-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.aqipredict1-aqipredict1 {
+  width: 100%;
+  height: 768px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.aqipredict1-clippathgroup {
+  top: 19px;
+  left: 0px;
+  width: 1365px;
+  height: 768px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-clip0 {
+  top: 0px;
+  left: 0px;
+  width: 1365px;
+  height: 768px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector {
+  top: 0px;
+  left: 0px;
+  width: 1365px;
+  height: 768px;
+  position: absolute;
+}
+.aqipredict1-group {
+  top: 0px;
+  left: 0px;
+  width: 1365px;
+  height: 768.18798828125px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector01 {
+  top: 0px;
+  left: 0px;
+  width: 1365px;
+  height: 768px;
+  position: absolute;
+}
+.aqipredict1-clippathgroup1 {
+  top: 20.999956130981445px;
+  left: 43.000038146972656px;
+  width: 162.99960327148438px;
+  height: 147.0001678466797px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-clip1 {
+  top: 0px;
+  left: 0px;
+  width: 162.99960327148438px;
+  height: 147.0001678466797px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector02 {
+  top: 0px;
+  left: 0px;
+  width: 163px;
+  height: 147px;
+  position: absolute;
+}
+.aqipredict1-group01 {
+  top: -16.381542205810547px;
+  left: 0.9999639391899109px;
+  width: 161.9996337890625px;
+  height: 178.8086700439453px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-clippathgroup2 {
+  top: 0px;
+  left: 0px;
+  width: 161.9996337890625px;
+  height: 178.8086700439453px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-clip3 {
+  top: 0px;
+  left: 0px;
+  width: 161.9996337890625px;
+  height: 178.8086700439453px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector03 {
+  top: 0px;
+  left: 0px;
+  width: 162px;
+  height: 179px;
+  position: absolute;
+}
+.aqipredict1-group02 {
+  top: 0px;
+  left: 0px;
+  width: 161.99974060058594px;
+  height: 178.80877685546875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-rectangle {
+  top: 0px;
+  left: 0px;
+  width: 162px;
+  height: 179px;
+  position: absolute;
+}
+.aqipredict1-group03 {
+  top: 258.30499267578125px;
+  left: 43.999969482421875px;
+  width: 167.0005340576172px;
+  height: 178.451904296875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-group04 {
+  top: 0px;
+  left: 0px;
+  width: 167.0005340576172px;
+  height: 178.451904296875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-group05 {
+  top: 0px;
+  left: 0px;
+  width: 167.0005340576172px;
+  height: 178.451904296875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector04 {
+  top: 0px;
+  left: 0px;
+  width: 167px;
+  height: 178px;
+  position: absolute;
+}
+.aqipredict1-vector05 {
+  top: 72.094482421875px;
+  left: 69.1832275390625px;
+  width: 29px;
+  height: 34px;
+  position: absolute;
+}
+.aqipredict1-vector06 {
+  top: 68.88241577148438px;
+  left: 102.41378784179688px;
+  width: 30px;
+  height: 38px;
+  position: absolute;
+}
+.aqipredict1-vector07 {
+  top: 72.094482421875px;
+  left: 34.14692687988281px;
+  width: 31px;
+  height: 34px;
+  position: absolute;
+}
+.aqipredict1-group06 {
+  top: 257.0509338378906px;
+  left: 653.0087890625px;
+  width: 200.9501953125px;
+  height: 177.05479431152344px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-group07 {
+  top: 0px;
+  left: 0px;
+  width: 200.9501953125px;
+  height: 177.05479431152344px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-group08 {
+  top: 0px;
+  left: 0px;
+  width: 200.9501953125px;
+  height: 177.05479431152344px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector08 {
+  top: 0px;
+  left: 0px;
+  width: 201px;
+  height: 177px;
+  position: absolute;
+}
+.aqipredict1-vector09 {
+  top: 235.0570068359375px;
+  left: 902px;
+  width: 404px;
+  height: 221px;
+  position: absolute;
+}
+.aqipredict1-vector10 {
+  top: 236.05799865722656px;
+  left: 239px;
+  width: 403px;
+  height: 222px;
+  position: absolute;
+}
+.aqipredict1-text {
+  top: 39.99016189575195px;
+  left: 260.302001953125px;
+  color: rgba(255, 130, 137, 1);
+  height: auto;
+  position: absolute;
+  font-size: 41.00491714477539px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.aqipredict1-text02 {
+  top: 80.99015808105469px;
+  left: 206.42799377441406px;
+  color: rgba(255, 130, 137, 1);
+  height: auto;
+  position: absolute;
+  font-size: 41.00491714477539px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.aqipredict1-text04 {
+  top: 32.99208068847656px;
+  left: 493.75201416015625px;
+  color: rgba(255, 130, 137, 1);
+  height: auto;
+  position: absolute;
+  font-size: 33.00395584106445px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.aqipredict1-text06 {
+  top: 30.992080688476562px;
+  left: 746.39697265625px;
+  color: rgba(255, 130, 137, 1);
+  height: auto;
+  position: absolute;
+  font-size: 33.00395584106445px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.aqipredict1-text08 {
+  top: 31.9925594329834px;
+  left: 1013.9000244140625px;
+  color: rgba(255, 130, 137, 1);
+  height: auto;
+  position: absolute;
+  font-size: 31.00371742248535px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.aqipredict1-clippathgroup3 {
+  top: 514.0004272460938px;
+  left: 629.0000610351562px;
+  width: 272.9993591308594px;
+  height: 153.00018310546875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-clip4 {
+  top: 0px;
+  left: 0px;
+  width: 272.9993591308594px;
+  height: 153.00018310546875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector11 {
+  top: 0px;
+  left: 0px;
+  width: 273px;
+  height: 153px;
+  position: absolute;
+}
+.aqipredict1-group09 {
+  top: -4.92206335067749px;
+  left: 0.9999998807907104px;
+  width: 271.99969482421875px;
+  height: 162.13258361816406px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-clippathgroup4 {
+  top: 0px;
+  left: 0px;
+  width: 271.99969482421875px;
+  height: 162.13258361816406px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-clip6 {
+  top: 0.000002717132701945957px;
+  left: -0.000018339225789532065px;
+  width: 271.99969482421875px;
+  height: 162.13258361816406px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector12 {
+  top: 0.000002717132701945957px;
+  left: -0.000018339225789532065px;
+  width: 272px;
+  height: 162px;
+  position: absolute;
+}
+.aqipredict1-group10 {
+  top: 0.000002717132701945957px;
+  left: -0.000018339225789532065px;
+  width: 271.9997863769531px;
+  height: 162.13265991210938px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-rectangle1 {
+  top: 0.000002717132701945957px;
+  left: -0.000018339225789532065px;
+  width: 272px;
+  height: 162px;
+  position: absolute;
+}
+.aqipredict1-group11 {
+  top: 492.2690124511719px;
+  left: 37px;
+  width: 200.44851684570312px;
+  height: 193.2100372314453px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-group12 {
+  top: 0px;
+  left: 0px;
+  width: 200.44851684570312px;
+  height: 193.2100372314453px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-group13 {
+  top: 0px;
+  left: 0px;
+  width: 200.44851684570312px;
+  height: 193.2100372314453px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.aqipredict1-vector13 {
+  top: 37.994354248046875px;
+  left: 44.938377380371094px;
+  width: 156px;
+  height: 155px;
+  position: absolute;
+}
+.aqipredict1-vector14 {
+  top: 0px;
+  left: 0px;
+  width: 65px;
+  height: 65px;
+  position: absolute;
+}
+.aqipredict1-vector15 {
+  top: 16.809295654296875px;
+  left: 16.946842193603516px;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+.aqipredict1-vector16 {
+  top: 35.812408447265625px;
+  left: 35.84178924560547px;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+}
+.aqipredict1-vector17 {
+  top: 160.03384399414062px;
+  left: 87.02641296386719px;
+  width: 49px;
+  height: 17px;
+  position: absolute;
+}
+.aqipredict1-vector18 {
+  top: 54.576751708984375px;
+  left: 112.979248046875px;
+  width: 67px;
+  height: 44px;
+  position: absolute;
+}
+.aqipredict1-vector19 {
+  top: 86.14981079101562px;
+  left: 88.74637603759766px;
+  width: 31px;
+  height: 59px;
+  position: absolute;
+}
+.aqipredict1-vector20 {
+  top: 86.14981079101562px;
+  left: 125.17727661132812px;
+  width: 31px;
+  height: 59px;
+  position: absolute;
+}
+.aqipredict1-vector21 {
+  top: 489.1189880371094px;
+  left: 244px;
+  width: 403px;
+  height: 221px;
+  position: absolute;
+}
+.aqipredict1-vector22 {
+  top: 489.1189880371094px;
+  left: 902px;
+  width: 404px;
+  height: 221px;
+  position: absolute;
+}

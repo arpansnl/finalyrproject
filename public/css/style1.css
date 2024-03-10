@@ -1,0 +1,108 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background: url("./bg.png");
+    font-family: 'Arial';
+    background-size: cover;
+    height: auto;
+    background-repeat: no-repeat;
+}
+.login{
+        width: 382px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 80px;
+        background: #23463f;
+        border-radius: 15px ;
+
+}
+h2{
+    text-align: center;
+    color: #277582;
+    padding: 20px;
+}
+label{
+    color: #08ffd1;
+    font-size: 17px;
+}
+#Uname{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+#Pass{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+
+}
+#log{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 17px;
+    padding-left: 7px;
+    color: blue;
+
+
+}
+span{
+    color: white;
+    font-size: 17px;
+}
+
+li {
+    position: relative;
+    text-align: center;
+    list-style: none;
+    padding: 5px;
+    height:16px;
+    background:linear-gradient(to bottom, rgba(31, 177, 210, 0.571), rgb(27, 86, 175));
+    border-radius: 10%;
+    
+}
+li:hover{
+    background:linear-gradient(to bottom, rgba(214, 18, 84, 0.571), rgb(141, 8, 41));
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+#outer{
+    display: flex;
+    justify-content: space-between;
+}
+#inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 20%;
+}
+#map{
+    width: 60%;
+    margin: auto;
+    border:5px solid black;
+
+}
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
