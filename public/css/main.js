@@ -185,15 +185,15 @@ function showStation(station, output) {
                 qualityDescription.innerHTML = 'Unhealthy';
                 qualityIcon.innerHTML = '🥴';
             }
-            else  if((station.aqi) >= 151 && (station.aqi) <= 200){
+            else  if((station.aqi) >= 151 && (station.aqi) <= 160){
                 qualityDescription.innerHTML = 'Harmful';
                 qualityIcon.innerHTML = '😷';
             }
-            else  if((station.aqi) >= 201 &&(station.aqi) <= 300){
+            else  if((station.aqi) >= 161 &&(station.aqi) <= 300){
                 qualityDescription.innerHTML = 'Terrible';
                 qualityIcon.innerHTML = '🤮';
             }
-            else if(_.get(station.aqi) >= 300){
+            else if(_.get(station.aqi) >= 301){
                 qualityDescription.innerHTML = 'Dangerous';
                 qualityIcon.innerHTML = '🤯';
             }
@@ -361,15 +361,15 @@ function geoloc(){
                 qualityDescription.innerHTML = 'Unhealthy';
                 qualityIcon.innerHTML = '🥴';
             }
-            else  if((station.aqi) >= 151 && (station.aqi) <= 200){
+            else  if((station.aqi) >= 151 && (station.aqi) <= 160){
                 qualityDescription.innerHTML = 'Harmful';
                 qualityIcon.innerHTML = '😷';
             }
-            else  if((station.aqi) >= 201 &&(station.aqi) <= 300){
+            else  if((station.aqi) >= 161 &&(station.aqi) <= 300){
                 qualityDescription.innerHTML = 'Terrible';
                 qualityIcon.innerHTML = '🤮';
             }
-            else if((station.aqi) >= 300){
+            else if((station.aqi) >= 301){
                 qualityDescription.innerHTML = 'Dangerous';
                 qualityIcon.innerHTML = '🤯';
             }
