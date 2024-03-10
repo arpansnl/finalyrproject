@@ -32,7 +32,7 @@ searchButton.addEventListener('click', (e)=> {
 geoButton.addEventListener("click" ,(e) => {
     init();
     geoloc();
-    document.getElementById('indoor').style.display = "block";
+    document.getElementById('indoor-iframe').style.display = "block";
     e.preventDefault();
 let longitude;
 let latitude;
