@@ -256,6 +256,9 @@ td{
 #indoor h2{
 color: #fff;
 }
+#indoor{
+    height: auto;
+}
 
 
 
