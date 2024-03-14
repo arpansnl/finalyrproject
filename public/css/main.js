@@ -440,6 +440,7 @@ function smokingantra(){
 function back(){
     document.getElementById("initialbutton").style.display="block";
     document.getElementById("asana0").style.display="none";
+    document.getElementById("yogmantra").style.display="none";
 }
     
 async function yoga1(i){
