@@ -2,6 +2,7 @@
   "name": "finalyrproject",
   "version": "1.0.0",
   "main": "index.js",
+  
   "scripts": {
     "start": "node index.js"
   },
@@ -10,6 +11,7 @@
   "dependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "amplify": "^0.0.11",
+    "axios": "^1.6.7",
     "body-parser": "^1.20.2",
     "chart.js": "^4.4.2",
     "dotenv": "^16.4.5",
@@ -32,6 +34,9 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
+    "react-router-dom": "^6.22.3",
     "realm": "^10.1.1",
     "realm-web": "^2.0.0",
     "render": "^0.1.4",

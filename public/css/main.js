@@ -2,11 +2,18 @@
 // const dom = new jsdom.JSDOM("")
 // const jquery = require('jquery')(dom.window)
 
+
+
+
+
+
+
+
+const ACCESS_KEY="sk-AmXN65f13f654c1504550";
 //ws = new WebSocket('ws://127.0.0.1:5500/') ;
 //ws.send("Here's some text that the server is urgently awaiting!");
 // API KEY
 const apiKey ="fdf0fddd82f6f5f19572856cc01835b8f5354929";
-
 // SELECTOR
 let locationElement = document.querySelector('#location p');
 let qualityIcon=document.querySelector('#quality #quality-icon');
@@ -17,14 +24,17 @@ const searchButton=document.querySelector("#search-button");
 const geoButton=document.querySelector("#geo-button");
 const details=document.getElementById("details");
 const details2=document.getElementById("output2");
+const slide=document.getElementsByClassName("mySlides");
 tokenId = apiKey;
 
 let input = searchInput;
 let output = details;
 
+document.querySelector("#indoor1").style.display="none";
+
 
 searchButton.addEventListener('click', (e)=> {
-   
+    document.querySelector("#indoor1").style.display="none";
      init();
      document.getElementById('indoor-iframe').style.display = "none";
     search(searchInput.value,details);
@@ -33,8 +43,19 @@ searchButton.addEventListener('click', (e)=> {
 geoButton.addEventListener("click" ,(e) => {
     init();
     geoloc();
+    document.querySelector("#indoor1").style.display="block";
+    
+    document.getElementById("initialbutton").style.display='block';
+    document.getElementById("initialbutton1").style.display='flex';
+    document.getElementById("initialbutton2").style.display='flex';
+    document.getElementById("initialbutton1").style.flexDirection='column';
+    document.getElementById("initialbutton2").style.flexDirection='row';
     document.getElementById('indoor-iframe').style.display = "block";
+ 
+    document.getElementById('solutions').style.display = "block";
+    document.getElementById("slideshow").style.display="block";
     e.preventDefault();
+    
 let longitude;
 let latitude;
 });
@@ -54,6 +75,9 @@ function init() {
     // //     search(input.val,output);
     // });
 }
+ 
+
+
  
 function search(keyword, output) {
     console.log("1");
@@ -169,6 +193,7 @@ function showStation(station, output) {
            
             document.getElementById("cityval").innerHTML=(station.station.name);
             document.getElementById("value").innerHTML=(station.aqi);
+          document.getElementById("result1").innerHTML=calculateCigarettes(station.aqi);
             if(station.uid === ''){
                 qualityDescription.innerHTML = 'Data not available';
                 qualityIcon.innerHTML = '❌';
@@ -345,6 +370,7 @@ function geoloc(){
             station=result.data;
             document.getElementById("cityval").innerHTML=(station.city.name);
             document.getElementById("value").innerHTML=(station.aqi);
+            document.getElementById("result1").innerHTML=calculateCigarettes(station.aqi);
             if(station.idx === ''){
                 qualityDescription.innerHTML = 'Data not available';
                 qualityIcon.innerHTML = '❌';
@@ -393,3 +419,295 @@ function geoloc(){
        
     }
 }
+function yogmantra(){
+    let yogabutton= document.getElementById("yogmantra");
+    yogabutton.style.display="flex";
+    yogabutton.style.flexDirection="row";
+}
+function plantmantra(){
+    let plantdetails= document.getElementById("plants");
+    plantdetails.style.display="block";
+   
+   
+}
+function smokingantra(){
+    let formdetails= document.getElementById("quitform");
+    formdetails.style.display="block";
+   
+   
+}
+
+function back(){
+    document.getElementById("initialbutton").style.display="block";
+    document.getElementById("asana0").style.display="none";
+}
+    
+async function yoga1(i){
+    document.getElementById("initialbutton").style.display="none";
+yogabutton=document.getElementById("yogmantra");
+yogabutton.style.display="inline-block";
+
+const apiUrl = "https://yoga-api-nzy4.onrender.com/v1/categories?id=4";
+const output = document.getElementById('output');
+
+const response = await fetch(apiUrl); 
+const data1 = await response.json(); 
+const data=data1.poses;
+    let english_name=data[i].english_name;
+    let pose_benefits=data[i].pose_benefits;
+    let pose_description=data[i].pose_description;
+    let sanskrit_name=data[i].sanskrit_name;
+    let translation_name=data[i].translation_name;
+    let desdiv=document.getElementById("asana0");
+    desdiv.innerHTML="English name: "+english_name+"<br>"+" Pose benefits: "+pose_benefits+"<br>"+"pose-description"+pose_description+"<br>"+"Sanskrit name"+sanskrit_name+"<br>"+"Translation name:"+translation_name;
+    let imgdiv=document.getElementById("asana-pic");
+       let img=document.createElement("img");
+       img.src=data[i].url_png;
+      desdiv.appendChild(img);
+}
+
+
+
+function Searchplant () {
+   
+ let htmlcode1=``;let htmlcode2=``;let htmlcode3=``;
+     fetch('/css/plantjson.json')
+        .then(response =>response.json())
+        .then(result => {
+            
+     result1=result.data;
+      card=document.getElementById("card");
+    for(i=3;i<14;i++){
+        if(i==5||i==6)
+        continue;
+   htmlcode1=htmlcode1+`<button class="button-89" id="${i}"onclick=appendcard(event)>${result1[i].common_name}</button>`
+   createcard(i);   
+   
+
+    }
+       
+    for(i=16;i<19;i++){
+       
+        htmlcode2=htmlcode2+`<button class="button-89" id="${i}" onclick=appendcard(event)>${result1[i].common_name}</button>`
+        createcard(i);
+        
+    
+      }
+      for(i=28;i<30;i++){
+       
+        htmlcode3=htmlcode3+ `<button class="button-89" id="${i}" onclick=appendcard(event)>${result1[i].common_name}</button>`;
+        
+    createcard(i);
+      }
+     card.innerHTML=``;
+      card.innerHTML=htmlcode1;
+      card.innerHTML+=htmlcode2;
+    card.innerHTML+=htmlcode3+`<button class="button-89" onclick=back1(event)>back</button>`;
+    console.log(htmlcode1);
+     
+    })
+.catch(error => console.log('error', error));
+}
+function back1(){
+    var ele = document.getElementsByClassName("button-89");
+    for (var i = 0; i < ele.length; i++ ) {
+        ele[i].style.display = "none";
+    }
+
+var ele = document.getElementsByClassName("cardp");
+for (var i = 0; i < ele.length; i++ ) {
+ele[i].style.display="none";
+}
+}
+let card1=document.getElementById("card1");
+let htmlCode = ``;
+function createcard(i){
+    fetch('/css/plantjson.json')
+    .then(response =>response.json())
+    .then(result => {
+     
+     result1=result.data;
+    image=result1[i].default_image;
+        htmlCode =
+    htmlCode +
+    `
+    <article class="cardp" id="${i}card">
+      <div class="plant-desp2">
+      <img src="${image.original_url}" alt="${image.regular_url}" >
+      </div>
+      <div class="container" id="plant-desp">
+      <h3>Name: ${result1[i].common_name}</h3>
+      <p>Scientific Name: ${result1[i].scientific_name}</p>
+      <p>watering: ${result1[i].watering}</p>
+      <p>Sunlight: ${result1[i].sunlight}</p>
+      </div>
+    </article>
+  `;
+  // uncomment the line below to see the output in the browser console.
+  // console.log(htmlCode);
+  card1.innerHTML=htmlCode;
+})
+}
+function reset(){
+    var ele = document.getElementsByClassName('cardp');
+    for (var i = 0; i < ele.length; i++ ) {
+        ele[i].style.display = "none";
+    }
+}
+function appendcard(event){
+   reset();
+ target=event.target;
+document.getElementById(target.id+"card").style.display="inline-block";
+}
+var form = document.forms['quitform'];
+var quitdate = form.elements[0];
+var startdate = form.elements[1];
+var packs_a_day = form.elements[2];
+var price_pack = form.elements[3];
+var textarea = form.elements[5];
+
+form.addEventListener("submit", submit, false);
+
+
+function submit() {
+	date1 = new Date(quitdate.value);
+	date2 = new Date(startdate.value);
+	diffTime = Math.abs(date2 - date1);
+	diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+	total_cost = parseFloat(packs_a_day.value) * parseFloat(price_pack.value) * diffDays;
+	textarea.value = "Days Quit: "+diffDays+", Money Saved Rs"+total_cost;
+	event.preventDefault();
+}
+function smokingmantra(){
+    
+    let form=document.getElementById("quitform");
+    form.style.display="inline-block";
+}
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+function back2(){
+document.getElementById("quitform").style.display="none";
+}
+
+
+var ipinfo;
+var city;
+var aqiData;
+var aqi;
+var conc;
+var ciggs;
+
+async function getIpInfo() {
+  await fetch("https://ipinfo.io/json?token=a38819ed3126d7")
+    .then((res) => res.json())
+    .then((data) => {
+      ipinfo = data;
+      city = ipinfo.city;
+    })
+    .then(() => {
+      populateLocationNav();
+      getAQI();
+    });
+}
+async function getAQI() {
+  const url = `https://api.waqi.info/feed/${city}?token=0aad6101e2cee1b141964b71dd78ec8b05345cb8`;
+  await fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      aqiData = data;
+      aqi = aqiData.data.aqi;
+      populateAQI();
+      updateAQIStyle(aqi);
+      aqi2ciggs(aqi);
+    });
+}
+const AQITablePM25 = {
+    concentrations: [
+        { min: 0, max: 15.5, index: { min: 0, max: 50 } },
+        { min: 15.5, max: 40.5, index: { min: 50, max: 100 } },
+        { min: 40.5, max: 65.5, index: { min: 100, max: 150 } },
+        { min: 65.5, max: 150.5, index: { min: 150, max: 200 } },
+        { min: 150.5, max: 250.5, index: { min: 200, max: 300 } },
+        { min: 250.5, max: 500.5, index: { min: 300, max: 400 } },
+        { min: 500.5, max: 99999999999, index: { min: 400, max: 99999999999 } }
+    ]
+};
+
+function getBreakpoints(AQI) {
+    const breakpoints = AQITablePM25.concentrations.find(function (conc) {
+        if (conc.index.min <= AQI && conc.index.max > AQI) {
+            return conc;
+        }
+    });
+    if (breakpoints === undefined) {
+        throw new Error(`AQI out of bounds. AQI: ${AQI}`);
+    }
+    return breakpoints;
+}
+
+
+function calcPM25(AQI) {
+    const breakpoints = getBreakpoints(AQI);
+    const PM_min = breakpoints.min;
+    const PM_max = breakpoints.max;
+    const AQI_min = breakpoints.index.min;
+    const AQI_max = breakpoints.index.max;
+
+    const PM = ((AQI - AQI_min) / (AQI_max - AQI_min)) * (PM_max - PM_min) + PM_min;
+
+    return PM;
+}
+
+function aqiToCigarettes(particleConcentration) {
+    const cigarettesPerParticle = 1 / 22;
+    const cigarettesPerDay = particleConcentration * cigarettesPerParticle;
+
+    return cigarettesPerDay;
+}
+
+
+function calculateCigarettes(aqiInput) {
+   
+
+    if (isNaN(aqiInput) || aqiInput <= 0) {
+        alert("Please enter a valid positive AQI.");
+        return;
+    }
+
+
+    const particleConcentration = calcPM25(aqiInput);
+
+
+    const cigarettesEquivalent = aqiToCigarettes(particleConcentration);
+
+    
+    return `It seems like you've smoked ${cigarettesEquivalent.toFixed(2)} cigarettes`;
+}
+
