@@ -35,6 +35,7 @@ document.querySelector("#indoor1").style.display="none";
 
 searchButton.addEventListener('click', (e)=> {
     document.querySelector("#indoor1").style.display="none";
+    document.querySelector("#display").style.display="none";
      init();
      document.getElementById('indoor-iframe').style.display = "none";
     search(searchInput.value,details);

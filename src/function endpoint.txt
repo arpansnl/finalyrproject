@@ -1,4 +1,3 @@
-
 exports = function ({ query, headers, body }, response) {  
 x= {
 	 status: "ok",
@@ -8,17 +7,19 @@ x= {
 	};	
 	y=(x.bodyy);
 	z=JSON.parse(y);
-	mq2=(z.mq2);
-	mq7=z.mq7;
-	mq135=z.mq135;
-	dust=z.dust;
-	if(mq2===undefined||mq7===undefined||mq135===undefined||dust===undefined){ response.setStatusCode(400);return "missing values";}
+	CO=(z.CO);
+	O3=(z.O3);
+	NO2=(z.NO2);
+	SO2=(z.SO2);
+	PM25=(z.PM25);
+	PM10=(z.PM10);
+	if(CO===undefined||O3===undefined||NO2===undefined||SO2===undefined||PM25===undefined||PM10===undefined){ response.setStatusCode(400);return "missing values";}
 	else{
-	  obj={"time":new Date(),"mq2":mq2,"mq7":mq7,"mq135":mq135,"dust":dust}
-	 const collection = context.services.get("Cluster0").db("test").collection("try");
+	  obj={"time":new Date(),"CO":CO,"O3":O3,"NO2":NO2,"SO2":SO2,"PM25":PM25,"PM10":PM10};
+	 const collection = context.services.get("Cluster0").db("test").collection("new");
 	 rval=collection.insertOne(obj);
 	 response.setStatusCode("200");
 	 return rval;
 }
-return"cool!";
+return "ok";
 }
